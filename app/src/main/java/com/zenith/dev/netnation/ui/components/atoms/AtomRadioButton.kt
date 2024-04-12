@@ -9,7 +9,6 @@ import com.zenith.dev.netnation.ui.theme.NetNationTheme
 @Composable
 fun AtomRadioButton(
     modifier: Modifier = Modifier,
-    text: String = "Hello Android!",
     onToggle: () -> Unit,
     enabled: Boolean = true,
     selected: Boolean = true
@@ -18,6 +17,7 @@ fun AtomRadioButton(
         selected = selected,
         onClick = onToggle,
         enabled = enabled,
+        modifier = modifier
     )
 }
 

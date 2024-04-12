@@ -8,13 +8,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.zenith.dev.netnation.R
 import com.zenith.dev.netnation.ui.components.atoms.AtomButton
 import com.zenith.dev.netnation.ui.components.atoms.AtomInputText
@@ -27,7 +27,8 @@ fun MoleculeSearchBar(
     onValueChange: (String) -> Unit,
     icon: ImageVector? = null,
     label: String? = null,
-    onButtonClick: () -> Unit
+    onButtonClick: () -> Unit,
+    shape: Shape = MaterialTheme.shapes.medium
     ) {
     Row(
        modifier = Modifier
@@ -36,6 +37,7 @@ fun MoleculeSearchBar(
         AtomInputText(
             onTextChanged = onValueChange,
             infoText = inputBoxText,
+            shape = shape,
             leadingIcon = {
                 icon?.let {
                     Icon(
@@ -44,21 +46,22 @@ fun MoleculeSearchBar(
                     )
                 }
             },
-            modifier = Modifier.fillMaxHeight()
+            modifier = Modifier
+                .fillMaxHeight()
+                .padding(end = dimensionResource(id = R.dimen.margin_medium))
         )
         AtomButton(
             text = "Search",
             onClick = onButtonClick,
+            shape = shape,
             modifier = Modifier
-                .padding(dimensionResource(id = R.dimen.margin_small))
                 .fillMaxHeight()
                 .fillMaxWidth()
-
         )
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(showBackground = true)
 @Composable
 fun MoleculeSearchBarPreview() {
     NetNationTheme {
