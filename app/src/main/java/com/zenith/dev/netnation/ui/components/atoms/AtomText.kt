@@ -1,5 +1,6 @@
 package com.zenith.dev.netnation.ui.components.atoms
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,33 +18,48 @@ import com.zenith.dev.netnation.ui.theme.NetNationTheme
 @Composable
 fun AtomText(
     modifier: Modifier = Modifier,
-    size: Int = R.dimen.text_size_medium,
     text: String = "Hello Android!",
     style: TextStyle = MaterialTheme.typography.headlineMedium,
-    fontWeight: FontWeight = FontWeight.Normal
+    fontWeight: FontWeight = FontWeight.Normal,
+    customSizeResId: Int? = null
 ) {
-    val fontSize: TextUnit = with(LocalDensity.current) {
-        dimensionResource(id = size).value / density
-    }.sp
+    val customSize: TextUnit = customSizeResId?.toTextUnit() ?: style.fontSize
 
-    if(text.isNotEmpty()) {
-        Text(
-            text = text,
-            color = MaterialTheme.colorScheme.primary,
-            fontSize = fontSize,
-            style = style,
-            fontWeight = fontWeight,
-            modifier = modifier
-        )
+    Text(
+        text = text,
+        color = MaterialTheme.colorScheme.primary,
+        style = style,
+        fontWeight = fontWeight,
+        fontSize = customSize,
+        modifier = modifier
+    )
+}
+
+// extension function to convert a dimension resource to a TextUnit
+@Composable
+fun Int.toTextUnit(): TextUnit {
+    return with(LocalDensity.current) {
+        dimensionResource(id = this@toTextUnit).value.sp
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun AtomTextPreview() {
     NetNationTheme(
         darkTheme = true
     ) {
-        AtomText()
+        Column {
+            AtomText(
+                text = "This is a headline",
+                style = MaterialTheme.typography.headlineLarge,
+            )
+
+            // with a custom size
+            AtomText(
+                text = "This is regular text",
+                customSizeResId = R.dimen.text_size_medium
+            )
+        }
     }
 }

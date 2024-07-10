@@ -36,7 +36,7 @@ fun AtomInputText(
     )
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun AtomInputTextPreview() {
     NetNationTheme {

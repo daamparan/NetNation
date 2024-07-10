@@ -48,7 +48,7 @@ fun MoleculeRadioButtonGroup(
                 )
                 AtomText(
                     text = text,
-                    size = R.dimen.text_size_xxlarge,
+                    customSizeResId = R.dimen.text_size_small,
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.SemiBold,
                     modifier = Modifier

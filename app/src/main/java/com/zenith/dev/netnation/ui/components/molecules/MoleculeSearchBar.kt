@@ -30,45 +30,13 @@ fun MoleculeSearchBar(
     onButtonClick: () -> Unit,
     shape: Shape = MaterialTheme.shapes.medium
     ) {
-    Row(
-       modifier = Modifier
-           .height(dimensionResource(id = R.dimen.height_small))
-    ) {
-        AtomInputText(
-            onTextChanged = onValueChange,
-            infoText = inputBoxText,
-            shape = shape,
-            leadingIcon = {
-                icon?.let {
-                    Icon(
-                        imageVector = it,
-                        contentDescription = label ?: "Icon"
-                    )
-                }
-            },
-            modifier = Modifier
-                .fillMaxHeight()
-                .padding(end = dimensionResource(id = R.dimen.margin_medium))
-        )
-        AtomButton(
-            text = "Search",
-            onClick = onButtonClick,
-            shape = shape,
-            modifier = Modifier
-                .fillMaxHeight()
-                .fillMaxWidth()
-        )
-    }
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun MoleculeSearchBarPreview() {
     NetNationTheme {
-        MoleculeSearchBar(
-            onValueChange = { },
-            icon = Icons.Default.Search,
-            onButtonClick = { }
-        )
+
     }
 }
