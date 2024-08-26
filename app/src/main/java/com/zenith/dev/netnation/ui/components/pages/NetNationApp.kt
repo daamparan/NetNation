@@ -10,9 +10,7 @@ fun NetNationApp(
 ) {
     // TODO implement the app remember values that we are using and other DI items
 
-    NetNationApp(
-
-    )
+    NetNationApp()
 }
 
 @Composable
@@ -25,7 +23,5 @@ internal fun NetNationApp(
 ) {
     //  TODO implement navigation and routing
 
-    //  TODO implement settings dialog handlding
-
-    //
+    //  TODO implement settings dialog handling
 }
