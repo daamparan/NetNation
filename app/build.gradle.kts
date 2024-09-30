@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -10,6 +12,20 @@ android {
     compileSdk = 34
 
     defaultConfig {
+        //  Get API Keys and URL's from file
+        val keystoreFile = project.rootProject.file("secrets.properties")
+        val properties = Properties()
+        properties.load(keystoreFile.inputStream())
+
+        // return empty if missing
+        val apiKey = properties.getProperty("API_KEY") ?: ""
+
+        buildConfigField(
+            type = "String",
+            name = "API_KEY", 
+            value = apiKey
+        )
+
         applicationId = "com.zenith.dev.netnation"
         minSdk = 28
         targetSdk = 34
