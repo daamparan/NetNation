@@ -19,12 +19,24 @@ android {
 
         // return empty if missing
         val apiKey = properties.getProperty("API_KEY") ?: ""
+        val baseURL = properties.getProperty("SPORTS_API_URL") ?: ""
+        val host = properties.getProperty("HOST") ?: ""
 
-        buildConfigField(
-            type = "String",
-            name = "API_KEY", 
-            value = apiKey
-        )
+            buildConfigField(
+                type = "String",
+                name = "API_KEY",
+                value = apiKey
+            )
+            buildConfigField(
+                type = "String",
+                name = "SPORTS_API_URL",
+                value = baseURL
+            )
+            buildConfigField(
+                type = "String",
+                name = "HOST",
+                value = host
+            )
 
         applicationId = "com.zenith.dev.netnation"
         minSdk = 28
@@ -56,6 +68,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -80,7 +93,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("com.google.dagger:hilt-android:2.51")
     kapt("com.google.dagger:hilt-android-compiler:2.51")
-    implementation("com.squareup.retrofit2:retrofit2:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
     // Test Dependencies
     testImplementation("junit:junit:4.13.2")
