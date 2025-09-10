@@ -21,3 +21,5 @@ daemon/
 jdks/
 native/
 wrapper/
+.idea/gradle.xml
+.idea/misc.xml
