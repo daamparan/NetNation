@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "com.zenith.dev.netnation"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.zenith.dev.netnation"
         minSdk = 28
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -63,6 +63,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("com.google.dagger:hilt-android:2.51")
+    implementation("androidx.compose.ui:ui-text-google-fonts:1.9.0")
     kapt("com.google.dagger:hilt-android-compiler:2.51")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
