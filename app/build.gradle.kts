@@ -70,6 +70,7 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("com.google.dagger:hilt-android:2.51")
+    implementation("androidx.compose.ui:ui-text-google-fonts:1.9.1")
     ksp("com.google.dagger:hilt-android-compiler:2.51")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
