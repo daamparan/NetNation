@@ -54,7 +54,6 @@ fun AtomTextPreview() {
                 text = "This is a headline",
                 style = MaterialTheme.typography.headlineLarge,
             )
-
             // with a custom size
             AtomText(
                 text = "This is regular text",

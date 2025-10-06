@@ -61,7 +61,7 @@ fun MoleculeRadioButtonGroup(
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(showBackground = true)
 @Composable
 fun MoleculeRadioButtonGroupPreview() {
     val options = listOf("Option 1", "Option 2", "Option 3")

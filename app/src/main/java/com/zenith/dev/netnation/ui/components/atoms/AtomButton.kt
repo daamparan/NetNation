@@ -1,13 +1,10 @@
 package com.zenith.dev.netnation.ui.components.atoms
 
-import android.content.res.Configuration
 import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import com.zenith.dev.netnation.ui.theme.NetNationTheme
 
@@ -32,7 +29,7 @@ fun AtomButton(
 @Preview
 @Composable
 fun AtomButtonPreview() {
-    NetNationTheme(darkTheme = true) {
+    NetNationTheme(darkTheme = false) {
         Surface {
             AtomButton(
                 onClick = { },
