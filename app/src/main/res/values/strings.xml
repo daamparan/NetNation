@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">NetNation</string>
     <string name="home_page_title">Home</string>
+    <string name="landing_page_title">NetNation</string>
+    <string name="landing_page_subtitle">Explore, favorite, and follow to stay in the game</string>
+    <string name="landing_page_icon_desc">App Logo - NetNation</string>
 </resources>
