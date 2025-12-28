@@ -9,6 +9,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
@@ -21,7 +22,8 @@ fun AtomText(
     text: String = "Hello Android!",
     style: TextStyle = MaterialTheme.typography.headlineMedium,
     fontWeight: FontWeight = FontWeight.Normal,
-    customSizeResId: Int? = null
+    customSizeResId: Int? = null,
+    textAlign: TextAlign? = null
 ) {
     val customSize: TextUnit = customSizeResId?.toTextUnit() ?: style.fontSize
 
@@ -31,6 +33,7 @@ fun AtomText(
         style = style,
         fontWeight = fontWeight,
         fontSize = customSize,
+        textAlign = textAlign,
         modifier = modifier
     )
 }

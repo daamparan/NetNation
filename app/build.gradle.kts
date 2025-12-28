@@ -1,43 +1,17 @@
-import java.util.Properties
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.dagger.hilt.android")
     kotlin("kapt")
+    id("com.google.devtools.ksp")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 android {
     namespace = "com.zenith.dev.netnation"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
-        //  Get API Keys and URL's from file
-        val keystoreFile = project.rootProject.file("secrets.properties")
-        val properties = Properties()
-        properties.load(keystoreFile.inputStream())
-
-        // return empty if missing
-        val apiKey = properties.getProperty("API_KEY") ?: ""
-        val baseURL = properties.getProperty("SPORTS_API_URL") ?: ""
-        val host = properties.getProperty("HOST") ?: ""
-
-            buildConfigField(
-                type = "String",
-                name = "API_KEY",
-                value = apiKey
-            )
-            buildConfigField(
-                type = "String",
-                name = "SPORTS_API_URL",
-                value = baseURL
-            )
-            buildConfigField(
-                type = "String",
-                name = "HOST",
-                value = host
-            )
-
         applicationId = "com.zenith.dev.netnation"
         minSdk = 28
         targetSdk = 34
@@ -68,7 +42,6 @@ android {
     }
     buildFeatures {
         compose = true
-        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -78,6 +51,11 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+}
+
+composeCompiler {
+    reportsDestination = layout.buildDirectory.dir("compose_compiler")
+    stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")
 }
 
 dependencies {
@@ -92,7 +70,8 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
     implementation("com.google.dagger:hilt-android:2.51")
-    kapt("com.google.dagger:hilt-android-compiler:2.51")
+    implementation("androidx.compose.ui:ui-text-google-fonts:1.9.1")
+    ksp("com.google.dagger:hilt-android-compiler:2.51")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
     // Test Dependencies
