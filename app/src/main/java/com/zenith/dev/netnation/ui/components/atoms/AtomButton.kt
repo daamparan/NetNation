@@ -21,7 +21,7 @@ fun AtomButton(
     Button(
         onClick = onClick,
         enabled = enabled,
-        modifier = Modifier
+        modifier = modifier
     ) {
         Text(
             text = text,
