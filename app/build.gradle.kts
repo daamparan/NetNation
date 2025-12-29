@@ -5,6 +5,7 @@ plugins {
     kotlin("kapt")
     id("com.google.devtools.ksp")
     id("org.jetbrains.kotlin.plugin.compose")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -83,4 +84,11 @@ dependencies {
     // Debug Dependencies
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+}
+
+secrets {
+    propertiesFileName = "local.properties" // This is the default
+
+    // A list of properties to ignore from the properties file.
+    ignoreList.add("sdk.dir")
 }
